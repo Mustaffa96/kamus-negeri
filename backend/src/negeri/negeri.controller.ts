@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestj
 import { NegeriService } from './negeri.service';
 import { CreateNegeriDto } from './dto/create-negeri.dto';
 import { UpdateNegeriDto } from './dto/update-negeri.dto';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery } from '@nestjs/swagger/dist';
 import { Negeri } from './entities/negeri.entity';
 
 @ApiTags('negeri')

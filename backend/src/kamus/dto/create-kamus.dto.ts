@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger/dist';
 import { IsNotEmpty, IsString, IsOptional, IsNumber, IsInt } from 'class-validator';
 
 export class CreateKamusDto {

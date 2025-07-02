@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, NotFoundException } from '@nestjs/common';
 import { KamusService } from './kamus.service';
 import { CreateKamusDto } from './dto/create-kamus.dto';
 import { UpdateKamusDto } from './dto/update-kamus.dto';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery } from '@nestjs/swagger/dist';
 import { Kamus } from './entities/kamus.entity';
 
 @ApiTags('kamus')
