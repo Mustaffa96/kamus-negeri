@@ -44,7 +44,7 @@ kamus-negeri/
 
 3. Create a `.env` file in the backend directory with the following content:
    ```
-   DB_HOST=mysql-ahmad.alwaysdata.net
+   DB_HOST=mysql-yourdatabase.net
    DB_PORT=3306
    DB_USERNAME=your_username
    DB_PASSWORD=your_password
