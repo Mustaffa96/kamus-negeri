@@ -1,6 +1,6 @@
 # Kamus Negeri Malaysia
 
-A CRUD API for Malaysian states dictionary using NestJS, TypeScript, and Sequelize with MySQL.
+A full-stack application for Malaysian states dictionary using NestJS, TypeScript, and Sequelize with MySQL for the backend, and NextJS with TypeScript and TailwindCSS for the frontend.
 
 ## Project Structure
 
@@ -11,7 +11,14 @@ kamus-negeri/
 │   │   ├── kamus/    # Kamus module (dictionary entries)
 │   │   ├── negeri/   # Negeri module (Malaysian states)
 │   │   └── database/ # Database configuration
-└── frontend/         # Frontend application (to be implemented)
+└── frontend/         # NextJS Frontend application
+    ├── src/
+    │   ├── components/  # Reusable UI components
+    │   ├── pages/       # NextJS pages and routes
+    │   ├── redux/       # Redux state management
+    │   ├── services/    # API service layer
+    │   ├── styles/      # Global styles
+    │   └── types/       # TypeScript type definitions
 ```
 
 ## Backend Setup
@@ -74,6 +81,66 @@ The API will be available at `http://localhost:3000` with the following endpoint
 ### Swagger Documentation
 
 API documentation is available at `http://localhost:3000/api` when the server is running.
+
+## Frontend Setup
+
+### Prerequisites
+
+- Node.js
+- pnpm
+
+### Installation
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd kamus-negeri/frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+3. Create a `.env` file in the frontend directory with the following content:
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:3000
+   ```
+
+4. Start the development server:
+   ```bash
+   pnpm run dev
+   ```
+
+The frontend application will be available at `http://localhost:3000`.
+
+### Frontend Technologies
+
+- **NextJS** - React framework for server-rendered applications
+- **TypeScript** - Typed JavaScript for better developer experience
+- **TailwindCSS** - Utility-first CSS framework
+- **Redux Toolkit** - State management
+- **Axios** - HTTP client for API requests
+- **React Hook Form** - Form handling
+- **React Icons** - Icon library
+- **React Toastify** - Toast notifications
+
+### Frontend Features
+
+- **Home Page**
+  - Search bar for dialect words with state filtering
+  - Display of randomized dialect entries
+  - Quick navigation to Kamus and Negeri pages
+
+- **Kamus (Dictionary) Page**
+  - List view of all dictionary entries
+  - CRUD operations for dictionary entries
+  - Search and filter functionality
+  - Pagination
+
+- **Negeri (States) Page**
+  - List view of all Malaysian states
+  - CRUD operations for states
+  - View dialect entries by state
 
 ## Database Schema
 
