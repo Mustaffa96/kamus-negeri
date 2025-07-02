@@ -19,7 +19,7 @@ export default function Home() {
   const { items: negeriItems = [] } = useSelector((state: RootState) => state.negeri);
   
   useEffect(() => {
-    dispatch(fetchRandomKamus(5));
+    dispatch(fetchRandomKamus(6));
     dispatch(fetchNegeri());
   }, [dispatch]);
   
@@ -47,7 +47,7 @@ export default function Home() {
   };
   
   const handleRefreshRandom = () => {
-    dispatch(fetchRandomKamus(5));
+    dispatch(fetchRandomKamus(6));
   };
   
   const getNegeriName = (negeriId: number) => {

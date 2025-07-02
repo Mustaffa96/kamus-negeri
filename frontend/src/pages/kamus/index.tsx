@@ -62,9 +62,9 @@ export default function KamusList() {
     if (window.confirm('Are you sure you want to delete this entry?')) {
       try {
         await dispatch(deleteKamus(id)).unwrap();
-        toast.success('Entry deleted successfully');
+        toast.success('Berjaya memadam entri');
       } catch (err) {
-        toast.error('Failed to delete entry');
+        toast.error('Gagal memadam entri');
       }
     }
   };
@@ -87,7 +87,7 @@ export default function KamusList() {
     <Layout title="Kamus Negeri - Dictionary">
       <div className="w-full max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">
-          Dictionary Entries
+          Entri Kamus
           {getCurrentNegeriName() && (
             <span className="text-text-secondary"> for {getCurrentNegeriName()}</span>
           )}
@@ -126,7 +126,7 @@ export default function KamusList() {
               className="btn btn-primary flex items-center w-full md:w-auto"
             >
               <FaSearch className="mr-2" />
-              Search
+              Cari
             </button>
           </form>
         </div>
@@ -135,7 +135,7 @@ export default function KamusList() {
         <div className="mb-6">
           <Link href="/kamus/create" className="btn btn-secondary flex items-center w-fit">
             <FaPlus className="mr-2" />
-            Add New Entry
+            Tambah Entri baru
           </Link>
         </div>
         
@@ -155,7 +155,7 @@ export default function KamusList() {
           <>
             {/* Results Count */}
             <p className="mb-4 text-text-secondary">
-              {items.length} {items.length === 1 ? 'entry' : 'entries'} found
+              {items.length} {items.length === 1 ? 'entry' : 'entries'} dijumpai
             </p>
             
             {/* Dictionary Entries */}
@@ -167,28 +167,28 @@ export default function KamusList() {
                       <div>
                         <h3 className="text-xl font-bold text-primary">{item.dialek}</h3>
                         <span className="text-sm text-text-secondary">
-                          From {getNegeriName(item.negeri_id)}
+                          Dari {getNegeriName(item.negeri_id)}
                         </span>
                       </div>
                       <div className="flex space-x-2">
                         <Link 
                           href={`/kamus/${item.id}`}
                           className="p-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200"
-                          title="View Details"
+                          title="Lihat Maklumat"
                         >
                           <FaEye />
                         </Link>
                         <Link 
                           href={`/kamus/${item.id}/edit`}
                           className="p-2 bg-yellow-100 text-yellow-600 rounded hover:bg-yellow-200"
-                          title="Edit Entry"
+                          title="Edit Entri"
                         >
                           <FaEdit />
                         </Link>
                         <button
                           onClick={() => handleDelete(item.id)}
                           className="p-2 bg-red-100 text-red-600 rounded hover:bg-red-200"
-                          title="Delete Entry"
+                          title="Padam Entri"
                         >
                           <FaTrash />
                         </button>
@@ -205,10 +205,10 @@ export default function KamusList() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-xl text-text-secondary">No entries found</p>
+                <p className="text-xl text-text-secondary">Tiada entri dijumpai</p>
                 {(searchTerm || selectedNegeriId) && (
                   <p className="mt-2">
-                    Try a different search term or{' '}
+                    Cuba carian lain atau{' '}
                     <button
                       onClick={() => {
                         setSearchTerm('');

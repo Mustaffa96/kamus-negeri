@@ -44,9 +44,9 @@ export default function NegeriList() {
     if (window.confirm('Are you sure you want to delete this state? This will also delete all associated dialect entries.')) {
       try {
         await dispatch(deleteNegeri(id)).unwrap();
-        toast.success('State deleted successfully');
+        toast.success('Berjaya memadam negeri');
       } catch (err) {
-        toast.error('Failed to delete state');
+        toast.error('Gagal memadam negeri');
       }
     }
   };
@@ -57,7 +57,7 @@ export default function NegeriList() {
   return (
     <Layout title="Kamus Negeri - States">
       <div className="w-full max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Malaysian States</h1>
+        <h1 className="text-3xl font-bold mb-6">Negeri Malaysia</h1>
         
         {/* Search Bar */}
         <div className="mb-8">
@@ -66,7 +66,7 @@ export default function NegeriList() {
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search for states..."
+              placeholder="Cari negeri..."
               className="input flex-grow"
               aria-label="Search for states"
             />
@@ -75,7 +75,7 @@ export default function NegeriList() {
               className="btn btn-primary ml-2 flex items-center"
             >
               <FaSearch className="mr-2" />
-              Search
+              Cari
             </button>
           </form>
         </div>
@@ -84,7 +84,7 @@ export default function NegeriList() {
         <div className="mb-6">
           <Link href="/negeri/create" className="btn btn-secondary flex items-center w-fit">
             <FaPlus className="mr-2" />
-            Add New State
+            Tambah Negeri
           </Link>
         </div>
         
@@ -104,7 +104,7 @@ export default function NegeriList() {
           <>
             {/* Results Count */}
             <p className="mb-4 text-text-secondary">
-              {negeriItems.length} {negeriItems.length === 1 ? 'state' : 'states'} found
+              {negeriItems.length} {negeriItems.length === 1 ? 'state' : 'states'} dijumpai
             </p>
             
             {/* States List */}
@@ -120,21 +120,21 @@ export default function NegeriList() {
                         <Link 
                           href={`/kamus?negeriId=${item.id}`}
                           className="p-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200"
-                          title="View Dialect Entries"
+                          title="Lihat Entri Negeri"
                         >
-                          View Entries
+                          Papar Entri
                         </Link>
                         <Link 
                           href={`/negeri/${item.id}/edit`}
                           className="p-2 bg-yellow-100 text-yellow-600 rounded hover:bg-yellow-200"
-                          title="Edit State"
+                          title="Edit Negeri"
                         >
                           <FaEdit />
                         </Link>
                         <button
                           onClick={() => handleDelete(item.id)}
                           className="p-2 bg-red-100 text-red-600 rounded hover:bg-red-200"
-                          title="Delete State"
+                          title="Padam Negeri"
                         >
                           <FaTrash />
                         </button>
@@ -145,10 +145,10 @@ export default function NegeriList() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-xl text-text-secondary">No states found</p>
+                <p className="text-xl text-text-secondary">Tiada Negeri dijumpai</p>
                 {searchTerm && (
                   <p className="mt-2">
-                    Try a different search term or{' '}
+                    Cuba carian lain atau{' '}
                     <button
                       onClick={() => {
                         setSearchTerm('');
