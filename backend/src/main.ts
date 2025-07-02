@@ -6,8 +6,14 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
-  // Enable CORS
-  app.enableCors();
+  // Enable CORS with more specific configuration for production
+  app.enableCors({
+    origin: process.env.NODE_ENV === 'production' 
+      ? [process.env.FRONTEND_URL || 'https://kamus-negeri.vercel.app'] 
+      : true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    credentials: true,
+  });
   
   // Enable validation
   app.useGlobalPipes(new ValidationPipe({
@@ -28,6 +34,6 @@ async function bootstrap() {
   // Get port from environment variable or use default
   const port = process.env.PORT || 3000;
   await app.listen(port);
-  console.log(`Application is running on: http://localhost:${port}`);
+  console.log(`Application is running on: ${process.env.NODE_ENV === 'production' ? 'production' : `http://localhost:${port}`}`);
 }
 bootstrap();

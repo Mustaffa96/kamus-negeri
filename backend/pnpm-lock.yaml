@@ -30,7 +30,7 @@ importers:
         specifier: ^0.14.0
         version: 0.14.2
       mysql2:
-        specifier: ^3.6.0
+        specifier: ^3.14.1
         version: 3.14.1
       reflect-metadata:
         specifier: ^0.1.13
